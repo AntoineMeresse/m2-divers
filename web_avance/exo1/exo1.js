@@ -32,10 +32,10 @@ function Cellule(parameters) {
     if (!parameters) return;
     this.style = parameters.style;
     this.baliseMere = parameters.baliseMere;
-    this.texte = "TEST";
     
-    //this.__defineGetter__("texte", function () {return this.texte;});
-    //this.__defineSetter__("texte", function(newText) {this.texte = newText;});
+    var texte = "TEST";
+    this.__defineGetter__("texte", function () {return texte;});
+    this.__defineSetter__("texte", function(newText) {texte = newText;});
     
     this.construireLaCellule();
 };
@@ -60,8 +60,8 @@ Cellule.prototype.handleEvent = function (evenement) {
     
 };
 
-function CelluleAvecEntier(){
-    CelluleAvecEntier.prototype = new Cellule();
+function CelluleAvecEntier(props){
+    CelluleAvecEntier.prototype = new Cellule(props);
     this.compteur = 0;
 }
 
