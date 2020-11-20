@@ -19,18 +19,7 @@ Tableau.prototype.construireTableau = function () {
     for(var i = 0; i < this.nbLignes; i++){
         var row = document.createElement("tr");
         for(var j = 0; j < this.nbColonnes; j++) {
-            var cell = document.createElement("td");
-
-            var cellContent = document.createTextNode("CELL"); // Change with cell content
-
-            // Style cellule 
-            cell.style.border = this.styleCellule.border;
-            cell.style.width = this.styleCellule.width;
-            cell.style.height = this.styleCellule.height;
-
-            // Ajout
-            cell.appendChild(cellContent);
-            row.appendChild(cell);
+            new Cellule({baliseMere : row, style : this.styleCellule})
         }
         tbody.appendChild(row);
     }
@@ -39,6 +28,37 @@ Tableau.prototype.construireTableau = function () {
     this.conteneurHTML.appendChild(table);
 }
 
+function Cellule(parameters) {
+    if (!parameters) return;
+    this.style = parameters.style;
+    this.baliseMere = parameters.baliseMere;
+    // ici
+    // définition des getter / setter pour texte
+    // et invocation de construireLaCellule
+    
+    this.construireLaCellule();
+};
+    
+
+Cellule.prototype.construireLaCellule = function () {
+    console.log("NEW CELL");
+    var cell = document.createElement("td");
+
+    var cellContent = document.createTextNode("CELL"); // Change with cell content
+
+    // Style cellule 
+    cell.style.border = this.style.border;
+    cell.style.width = this.style.width;
+    cell.style.height = this.style.height;
+
+    // Ajout
+    cell.appendChild(cellContent);
+    this.baliseMere.appendChild(cell);
+};
+    
+Cellule.prototype.handleEvent = function (evenement) {
+    
+};
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 var monTableau = new Tableau(
