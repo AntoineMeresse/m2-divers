@@ -22,13 +22,20 @@ Tableau.prototype.construireTableau = function () {
             var cell = document.createElement("td");
 
             var cellContent = document.createTextNode("CELL"); // Change with cell content
-            
+
+            // Style cellule 
+            cell.style.border = this.styleCellule.border;
+            cell.style.width = this.styleCellule.width;
+            cell.style.height = this.styleCellule.height;
+
+            // Ajout
             cell.appendChild(cellContent);
             row.appendChild(cell);
         }
         tbody.appendChild(row);
     }
     table.appendChild(tbody);
+    table.style.border = this.styleTable.border;
     this.conteneurHTML.appendChild(table);
 }
 
