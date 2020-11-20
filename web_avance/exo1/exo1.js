@@ -32,19 +32,19 @@ function Cellule(parameters) {
     if (!parameters) return;
     this.style = parameters.style;
     this.baliseMere = parameters.baliseMere;
-    // ici
-    // définition des getter / setter pour texte
-    // et invocation de construireLaCellule
+    this.texte = "TEST";
+    
+    //this.__defineGetter__("texte", function () {return this.texte;});
+    //this.__defineSetter__("texte", function(newText) {this.texte = newText;});
     
     this.construireLaCellule();
 };
     
-
 Cellule.prototype.construireLaCellule = function () {
-    console.log("NEW CELL");
+    //console.log("NEW CELL");
     var cell = document.createElement("td");
 
-    var cellContent = document.createTextNode("CELL"); // Change with cell content
+    var cellContent = document.createTextNode(this.texte); // Change with cell content
 
     // Style cellule 
     cell.style.border = this.style.border;
@@ -59,6 +59,11 @@ Cellule.prototype.construireLaCellule = function () {
 Cellule.prototype.handleEvent = function (evenement) {
     
 };
+
+function CelluleAvecEntier(){
+    CelluleAvecEntier.prototype = new Cellule();
+    this.compteur = 0;
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 var monTableau = new Tableau(
