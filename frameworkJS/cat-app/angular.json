@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "cat-app"
+  "defaultProject": "cat-app",
+  "cli": {
+    "analytics": false
+  }
 }
