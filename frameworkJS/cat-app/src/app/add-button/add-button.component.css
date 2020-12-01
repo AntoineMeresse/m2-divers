@@ -1,0 +1,9 @@
+.btn.circle {
+  border-radius: 50%;
+}
+
+.add {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+}

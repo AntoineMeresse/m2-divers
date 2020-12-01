@@ -1,0 +1,8 @@
+<section class="container">
+    <h2>Cat card list</h2>
+    <hr />
+    <div class="card-group">
+        <app-card-cat *ngFor="let card of cards" [card]="card"></app-card-cat>
+    </div>
+    <app-add-button></app-add-button>
+</section>
